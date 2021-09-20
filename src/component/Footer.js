@@ -1,7 +1,7 @@
 function Footer(props) {
     return (
         <>
-            <h3> Footer </h3>
+            <h3> {props.thefooter} </h3>
         </>
     );
 }
