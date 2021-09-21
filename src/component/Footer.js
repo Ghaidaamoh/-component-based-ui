@@ -1,8 +1,9 @@
+import '../style/Footer.scss'
 function Footer(props) {
     return (
-        <>
-            <h3> Footer </h3>
-        </>
+        <div id='footer'>
+            <h3 > {props.thefooter} </h3>
+        </div>
     );
 }
 export default Footer;
