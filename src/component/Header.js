@@ -2,7 +2,7 @@ import '../style/Header.scss'
 function Header(props) {
     return (
         <div id='headers'>
-           <h1> {props.theHeader}I </h1>
+           <h1> {props.theHeader}</h1>
         </div>
     );
 }
