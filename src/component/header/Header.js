@@ -1,4 +1,4 @@
-import '../style/Header.scss'
+import './Header.scss'
 function Header(props) {
     return (
         <div id='headers'>

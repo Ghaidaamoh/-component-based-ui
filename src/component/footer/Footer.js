@@ -1,4 +1,4 @@
-import '../style/Footer.scss'
+import './Footer.scss'
 function Footer(props) {
     return (
         <div id='footer'>

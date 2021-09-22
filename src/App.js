@@ -1,36 +1,70 @@
 import logo from './logo.svg';
-import './style/App.scss';
-import React, { useState } from 'react';
-import Header from './component/Header';
-import Footer from './component/Footer';
-import Result from './component/Result';
-import FormComponent from './component/FormComponent';
+import './App.scss';
+import Header from './component/header/Header';
+import Footer from './component/footer/Footer';
+import Result from './component/result/Result';
+import FormComponent from './component/form/FormComponent';
 
-function App() {
+import React, { Component } from 'react'
 
-  const [data, setData] = useState(
-    []
-  );
-  
-  const formfun = (e) => {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      data:""
+    }
+  }
+  formfun = (e) => {
     e.preventDefault();
 
     let resultData = e.target.email.value
 
-    setData(`get ${resultData}`)
+    this.setState({ data:`get ${resultData}`})
 
   }
 
-  
+  render() {
+    return (
 
-  return (
-    <div className="App">
-      <Header theHeader={'RESTy'} />
-      <FormComponent formfun={formfun} />
-      <Result data={data} />
-      <Footer thefooter={'© 2018 Code Fellows'} />
-    </div>
-  );
+      <div className="App">
+        <Header theHeader={'RESTy'} />
+        <FormComponent formfun={this.formfun} />
+        <Result data={this.state.data} />
+        <Footer thefooter={'© 2018 Code Fellows'} />
+      </div>
+
+    )
+  }
 }
 
-export default App;
+export default App
+
+
+// function App() {
+
+//   const [data, setData] = useState(
+//     []
+//   );
+
+//   const formfun = (e) => {
+//     e.preventDefault();
+
+//     let resultData = e.target.email.value
+
+//     setData(`get ${resultData}`)
+
+//   }
+
+
+
+//   return (
+//     <div className="App">
+//       <Header theHeader={'RESTy'} />
+//       <FormComponent formfun={formfun} />
+//       <Result data={data} />
+//       <Footer thefooter={'© 2018 Code Fellows'} />
+//     </div>
+//   );
+// }
+
+// export default App;
