@@ -1,7 +1,7 @@
 import { Form, Button } from 'react-bootstrap'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
-import '../style/Form.scss'
+import './Form.scss'
 function FormComponent(props) {
     return (
         <>

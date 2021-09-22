@@ -1,4 +1,4 @@
-import '../style/Result.scss'
+import './Result.scss'
 function Result(props) {
     return (
         <div id='result'>
