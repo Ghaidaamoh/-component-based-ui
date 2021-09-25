@@ -7,7 +7,9 @@ import Result from './component/result/Result';
 import FormComponent from './component/form/FormComponent';
 import Loading from './component/loding/Loding'
 import React, { Component } from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useReducer } from 'react';
+import History from './component/history/History';
+import { initialState, historyReducer, addAction } from './component/history/Reducer';
 
 function App() {
 
@@ -25,9 +27,14 @@ function App() {
     { method: 'get', url: 'link', reqBody: {} }
 
   );
+  const [state, dispatch] = useReducer(historyReducer, initialState);
 
   const apiData = (myapi) => {
     setreqinfo(myapi)
+  }
+
+  const getOldResult = (myResult) => {
+    setData(myResult)
   }
 
   useEffect(() => {
@@ -65,7 +72,9 @@ function App() {
 
           setData(lastResult)
           console.log(lastResult);
-        } catch (err) {
+          dispatch(addAction({ url: url, method: method, result: lastResult }));
+        }
+        catch (err) {
 
           let newObj = {
             headers: `Faild to ${myButton} this link ${formData}`,
@@ -93,7 +102,9 @@ function App() {
         loading &&
         <Loading />
       }
+      <br/>
       <Result data={data} />
+      <History history={state.history} getOldResult={getOldResult} />
       <Footer thefooter={'© 2018 Code Fellows'} />
     </div>
   );
